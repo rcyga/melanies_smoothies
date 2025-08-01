@@ -1,6 +1,5 @@
 import streamlit as st
 from snowflake.snowpark.functions import col
-from snowflake.snowpark.context import get_active_session
 
 st.title(f"Customize your smoothie :cup_with_straw: {st.__version__}")
 st.write(
@@ -10,7 +9,8 @@ st.write(
 name_on_order = st.text_input('Name on smoothie:')
 st.write('The name on your smoothie will be:', name_on_order)
 
-session = get_active_session()
+cnx = st.connection("snowflake")
+session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 
 ingredients_list = st.multiselect(

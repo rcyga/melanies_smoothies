@@ -1,4 +1,4 @@
 snowflake
-python==3.11.*
+python==3.11.13
 snowflake-snowpark-python
 streamlit

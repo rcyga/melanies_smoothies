@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import pandas as pd
 
 st.title(f"Customize your smoothie :cup_with_straw: {st.__version__}")
 st.write(
